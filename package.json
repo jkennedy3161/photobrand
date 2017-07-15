@@ -1,0 +1,40 @@
+{
+  "name": "photobrand",
+  "version": "1.0.0",
+  "description": "photo software as a service (SAAS). Featuring login in and editing profile pages.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js --exec babel-node",
+    "build": "babel server -d dist",
+    "serve": "node dist/index.js",
+    "test": "mocha --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkennedy3161/photobrand.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkennedy3161/photobrand/issues"
+  },
+  "homepage": "https://github.com/jkennedy3161/photobrand#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.3",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0"
+  }
+}

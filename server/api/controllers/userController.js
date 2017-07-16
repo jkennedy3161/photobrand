@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-let User = require('../models/userModels');
+let User = require('../models/userModel');
+let signToken = require('../../auth/auth').signToken;
 
 
 exports.params = function(req, res, next, id) {

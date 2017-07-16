@@ -1,7 +1,7 @@
-var router = require('express').Router();
-var userController = require('../controllers/userController');
-var auth = require('../../auth/auth');
-var checkUser = [auth.decodeToken(), auth.getFreshUser()];
+let router = require('express').Router();
+let userController = require('../controllers/userController');
+let auth = require('../../auth/auth');
+let checkUser = [auth.decodeToken(), auth.getFreshUser()];
 
 router.param('id', userController.params);
 router.get('/me', checkUser, userController.me);

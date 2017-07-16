@@ -1,6 +1,6 @@
-var router = require('express').Router();
+let router = require('express').Router();
 
-var userRouter = require('./routes/userRoutes')
+let userRouter = require('./routes/userRoutes')
 
 router.use('/users', userRouter);
 

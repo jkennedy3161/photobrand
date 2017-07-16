@@ -32,14 +32,14 @@ exports.get = function(req, res, next) {
 };
 
 exports.getOne = function(req, res, next) {
-  var user = req.user;
+  let user = req.user;
   res.json(user);
 };
 
 exports.put = function(req, res, next) {
-  var user = req.user;
+  let user = req.user;
 
-  var update = req.body;
+  let update = req.body;
 
   _.merge(user, update);
 
@@ -53,12 +53,12 @@ exports.put = function(req, res, next) {
 };
 
 exports.post = function(req, res, next) {
-  var newUser = new User(req.body);
+  let newUser = new User(req.body);
 
   newUser.save(function(err, user) {
     if(err) { return next(err);}
 
-    var token = signToken(user._id);
+    let token = signToken(user._id);
     res.json({token: token});
   });
 };

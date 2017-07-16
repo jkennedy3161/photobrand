@@ -1,3 +1,30 @@
-<div controller="SignUpController">
-  <h4>{{ test }}</h4>
+<div ng-controller="SignUpController" ng-init="modal()">
+  <div class="modal fade" id="authenticate" tabindex="-1" role="dialog" aria-labelledby="authLabel" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="authLabel">Register</h3>
+        </div>
+        <div class="modal-body">
+          <form name="form" ng-submit="signup(username, password)">
+          <div class="form-group">
+            <input type="text" placeholder="User name" class="form-control"
+            name="username"
+            ng-model="username"
+            required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control"
+            name="password"
+            ng-model="password"
+            required>
+          </div>
+            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Register</button>
+            <a href="/#!/signin">Have an account?
+          </form>
+          <form></form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

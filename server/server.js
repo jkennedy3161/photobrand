@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 let config = require('./config/config');
 let err = require('./middleware/err');
 let api = require('./api/api');
+let auth = require('./auth/routes');
 
 // handles serving static assets and returning json body from requests
 require('./middleware/middleware')(app, express);
@@ -17,6 +18,7 @@ mongoose.connect(config.db.url, { useMongoClient: true });
 
 // setup routes
 app.use('/api', api);
+app.use('/auth', auth);
 
 // global error handling middleware
 app.use(err());

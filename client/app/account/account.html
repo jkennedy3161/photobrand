@@ -1,0 +1,30 @@
+<div ng-controller="AccountController">
+  <div class="modal fade" id="authenticate" tabindex="-1" role="dialog" aria-labelledby="authLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="authLabel">Sign In</h3>
+        </div>
+        <div class="modal-body">
+          <form name="form" ng-submit="signin(username, password)">
+          <div class="form-group">
+            <input type="text" placeholder="User name" class="form-control"
+            name="username"
+            ng-model="username"
+            required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control"
+            name="password"
+            ng-model="password"
+            required>
+          </div>
+            <button type="submit" ng-click="signin(username, password)" ng-disabled="form.$invalid" class="btn btn-primary">Sign In</button>
+            <a ng-href="/#!/signup">Register</a>
+          </form>
+          <form></form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

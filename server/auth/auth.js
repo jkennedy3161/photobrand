@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import expressJwt from 'express-jwt';
 
-var config = require('../config/config');
-var checkToken = expressJwt({secret: config.secrets.jwt});
-var User = require('../api/models/userModel');
+let config = require('../config/config');
+let checkToken = expressJwt({secret: config.secrets.jwt});
+let User = require('../api/models/userModel');
 
 exports.decodeToken = function() {
   return function(req, res, next) {
@@ -33,8 +33,8 @@ exports.getFreshUser = function() {
 
 exports.verifyUser = function() {
   return function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
+    let username = req.body.username;
+    let password = req.body.password;
 
     // if no username or password then send
     if (!username || !password) {

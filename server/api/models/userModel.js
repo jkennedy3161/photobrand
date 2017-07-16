@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import bcrypt from bcrypt;
+import bcrypt from 'bcrypt';
 
 let Schema = mongoose.Schema;
 
@@ -33,12 +33,12 @@ UserSchema.methods = {
     if (!plainTextPword) {
       return ''
     } else {
-      var salt = bcrypt.genSaltSync(10);
+      let salt = bcrypt.genSaltSync(10);
       return bcrypt.hashSync(plainTextPword, salt);
     }
   },
   toJson: function() {
-    var obj = this.toObject()
+    let obj = this.toObject()
     delete obj.password;
     return obj;
   }

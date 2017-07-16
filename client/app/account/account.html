@@ -1,5 +1,5 @@
-<div ng-controller="AccountController">
-  <div class="modal fade" id="authenticate" tabindex="-1" role="dialog" aria-labelledby="authLabel" aria-hidden="true">
+<div ng-controller="AccountController" ng-init="modal()">
+  <div class="modal fade" id="authenticate" tabindex="-1" role="dialog" aria-labelledby="authLabel">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -19,7 +19,7 @@
             ng-model="password"
             required>
           </div>
-            <button type="submit" ng-click="signin(username, password)" ng-disabled="form.$invalid" class="btn btn-primary">Sign In</button>
+            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Sign In</button>
             <a ng-href="/#!/signup">Register</a>
           </form>
           <form></form>

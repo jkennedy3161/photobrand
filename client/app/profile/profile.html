@@ -1,4 +1,40 @@
 <div ng-controller="ProfileController" ng-init="userId()">
-<h2>Welcome {{ user.username }}!</h2>
-  <h4>Success! Now we need to {{ test }}</h4>
+  <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="profileLabel">Create your Profile</h3>
+        </div>
+        <div class="modal-body">
+          <form name="profile">
+          <div class="form-group">
+            <h4>Upload your Avatar</h4>
+            <div class="cropArea">
+              <img class="dummy" ng-show="!myImage" ng-src="app/images/dummy.jpg">
+              <img-crop image="myImage" result-image="myCroppedImage" result-image-size="60" area-type="square"></img-crop>
+            </div>
+            <input type="file" id="fileInput" ngf-select ng-model="picFile" name="file"
+                   accept="image/*">
+            <h4 ng-show="myImage">Cropped Image:</h4>
+            <div>
+              <img ng-src="{{ myCroppedImage }}" />
+            </div>
+        </div>
+          <div class="form-group">
+            <input type="text" placeholder="First Name" class="form-control"
+            name="firstN"
+            ng-model="firstN">
+          </div>
+          <div class="form-group">
+            <input type="lastN" placeholder="Last Name" class="form-control"
+            name="lastN"
+            ng-model="lastN">
+          </div>
+            <button class="btn btn-primary">Complete</button>
+            <a ng-href="/#!/"><button class="btn btn-primary">Cancel</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

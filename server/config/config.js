@@ -6,7 +6,7 @@ let jwt = require('../resources/secret');
 
 // set config object
 let config = {
-  port: process.env.PORT || 8080,
+  port: process.env.PORT || 1337,
   db: {url: 'mongodb://127.0.0.1:27017/photobrand'},
   expireTime: '10d',
   secrets: {

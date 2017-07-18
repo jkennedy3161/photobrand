@@ -1,0 +1,23 @@
+{
+  "name": "photobrand",
+  "homepage": "https://github.com/jkennedy3161/photobrand",
+  "authors": [
+    "jkennedy3161 <kennedyjt88@gmail.com>"
+  ],
+  "description": "photo software as a service (SAAS). Featuring login in and editing profile pages.",
+  "main": "server/index.js",
+  "keywords": [
+    "SAAS",
+    "photobrand"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ui-cropper": "^1.0.4",
+    "ng-file-upload": "^12.2.13",
+    "ng-img-crop": "^0.3.2",
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.6.5",
+    "jquery": "^3.2.1",
+    "angular": "^1.6.5"
+  }
+}

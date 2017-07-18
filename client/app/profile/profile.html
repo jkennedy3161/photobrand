@@ -1,25 +1,33 @@
 <div ng-controller="ProfileController" ng-init="userId()">
-  <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel">
+  <div ng-hide="myProfile.firstName" class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title" id="profileLabel">Create your Profile</h3>
         </div>
         <div class="modal-body">
-          <form name="profile">
+          <form name="profile" ng-submit="uploadProfile(firstN, lastN, email, studioName)">
           <div class="form-group">
             <h4>Upload your Avatar</h4>
             <div class="cropArea">
               <img class="dummy" ng-show="!myImage" ng-src="app/images/dummy.jpg">
-              <img-crop image="myImage" result-image="myCroppedImage" result-image-size="60" area-type="square"></img-crop>
+              <ui-cropper image="myImage" area-type="rectangle" result-image="myCroppedImage" result-image-size="{w:500, h:150}"></ui-cropper>
             </div>
             <input type="file" id="fileInput" ngf-select ng-model="picFile" name="file"
-                   accept="image/*">
+                   accept="image/*" required="">
             <h4 ng-show="myImage">Cropped Image:</h4>
-            <div>
-              <img ng-src="{{ myCroppedImage }}" />
+            <div class="cropImg">
+              <img class="avatar" ng-src="{{ myCroppedImage }}" />
             </div>
         </div>
+        <div class="form-group">
+            <h4>{{ user.username }}</h4>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Studio Name" class="form-control"
+            name="studioName"
+            ng-model="studioName">
+          </div>
           <div class="form-group">
             <input type="text" placeholder="First Name" class="form-control"
             name="firstN"
@@ -30,10 +38,54 @@
             name="lastN"
             ng-model="lastN">
           </div>
+          <div class="form-group">
+            <input type="email" placeholder="email@gmail.com" class="form-control"
+            name="email"
+            ng-model="email">
+          </div>
             <button class="btn btn-primary">Complete</button>
             <a ng-href="/#!/"><button class="btn btn-primary">Cancel</button></a>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- if profile exists -->
+  <div  ng-show="myProfile">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand message">Hi {{ user.username }}</span>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">PhotoBrand</a>
+    </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <button type="submit" ng-click="signout()" class="btn logout btn-primary">Log Out</button>
+      </div>
+    </div>
+    </nav>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>{{ myProfile.studioName }}</h2>
+      </div>
+    </div>
+    <div class="row">
+    <img ng-src="{{ myProfile.avatar }}">
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>{{ myProfile.firstName }}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>{{ myProfile.lastName }}</h3>
       </div>
     </div>
   </div>

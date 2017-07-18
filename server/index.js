@@ -2,5 +2,5 @@
 let app = require('./server.js');
 
 // run express instance
-app.listen(8080);
-console.log('server running on http://localhost:8080');
+app.listen(1337);
+console.log('server running on http://localhost:1337');

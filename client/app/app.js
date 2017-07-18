@@ -3,6 +3,8 @@ angular.module('photobrand', [
   'photobrand.signup',
   'photobrand.profile',
   'photobrand.services',
+  'ngFileUpload',
+  'ngImgCrop',
   'ngRoute'])
 .config(function($routeProvider) {
   $routeProvider

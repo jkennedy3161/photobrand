@@ -1,0 +1,4 @@
+// SAVE THIS FILE AS mongo.js AND REMOVE THIS FILE AFTER PLACING IN YOUR mongodb url
+module.exports = {
+  URI: 'COPY AND PASTE YOUR MONGODB URI HERE'
+};

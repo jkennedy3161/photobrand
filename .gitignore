@@ -1,6 +1,6 @@
 node_modules
 dist
 server/resources/*
+!server/resources/mongoTEMP.js
 !server/resources/secretTEMP.js
 !server/resources/photobrandTEMP.pem
-!server/resources/mongoTemp.js

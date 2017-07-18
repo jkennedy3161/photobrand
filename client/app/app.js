@@ -4,7 +4,7 @@ angular.module('photobrand', [
   'photobrand.profile',
   'photobrand.services',
   'ngFileUpload',
-  'ngImgCrop',
+  'uiCropper',
   'ngRoute'])
 .config(function($routeProvider) {
   $routeProvider

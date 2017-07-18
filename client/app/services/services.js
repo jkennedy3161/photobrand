@@ -41,3 +41,35 @@ angular.module('photobrand.services', [])
     me: me
   };
 })
+.factory('Profile', function($http, $window) {
+  let saveProfile = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/profile',
+      data: data,
+      ContentType: 'application/json',
+      params: {access_token: $window.localStorage.getItem('access_token')}
+    })
+    .then(function(res) {
+      return res.data;
+    });
+  };
+
+  let getProfile = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/profile',
+      ContentType: 'application/json',
+      params: {access_token: $window.localStorage.getItem('access_token')}
+    })
+    .then(function(res) {
+      console.log(res.data);
+      return res.data[0];
+    });
+  };
+
+  return {
+    saveProfile: saveProfile,
+    getProfile: getProfile
+  };
+})

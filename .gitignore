@@ -3,3 +3,4 @@ dist
 server/resources/*
 !server/resources/secretTEMP.js
 !server/resources/photobrandTEMP.pem
+!server/resources/mongoTemp.js
